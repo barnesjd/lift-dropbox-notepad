@@ -1,13 +1,11 @@
 
-organization := "Lift"
+organization := "proseand.co.nz"
 
-name := "Templating With Twitter Bootstrap"
+name := "Lift Dropbox Notepad"
 
-version := "0.4.8-SNAPSHOT"
+version := "0.1"
 
-scalaVersion := "2.9.2"
-
-crossScalaVersions := Seq("2.10.0", "2.9.2", "2.9.1-1", "2.9.1")
+scalaVersion := "2.10.3"
 
 scalacOptions <<= scalaVersion map { v: String =>
   val opts = "-deprecation" :: "-unchecked" :: Nil
@@ -18,10 +16,7 @@ seq(webSettings :_*)
 
 port in container.Configuration := 8080
 
-// If using JRebel
-//scanDirectories in Compile := Nil
-
-logLevel := Level.Info
+\logLevel := Level.Info
 
 EclipseKeys.withSource := true
 
