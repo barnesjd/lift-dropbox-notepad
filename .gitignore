@@ -1,3 +1,8 @@
 target/
 var/
 .history
+
+# Files generated for eclipse
+.classpath
+.project
+.settings/
