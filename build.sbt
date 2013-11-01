@@ -16,8 +16,6 @@ seq(webSettings :_*)
 
 port in container.Configuration := 8080
 
-\logLevel := Level.Info
-
 EclipseKeys.withSource := true
 
 transitiveClassifiers := Seq("sources")
