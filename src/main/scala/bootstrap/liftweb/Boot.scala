@@ -11,7 +11,6 @@ import Loc._
 import mapper._
 import net.liftweb.squerylrecord.RecordTypeMode._
 
-import code.model._
 import code.snippet._
 
 //import org.hoisted.lib._
