@@ -3,20 +3,16 @@ package bootstrap.liftweb
 import net.liftweb._
 import util._
 import Helpers._
-
 import common._
 import http._
 import sitemap._
 import Loc._
 import mapper._
 import net.liftweb.squerylrecord.RecordTypeMode._
-
 import code.snippet._
-
-//import org.hoisted.lib._
-//import java.io._
-
+import omniauth.Omniauth
 import net.liftmodules.{FoBo}
+import omniauth.lib.DropboxProvider
 
 /**
  * A class that's instantiated early and run.  It allows the application
@@ -57,6 +53,8 @@ class Boot extends Loggable {
     // Use HTML5 for rendering
     LiftRules.htmlProperties.default.set((r: Req) =>
       new Html5Properties(r.userAgent))
+
+    Omniauth.init
   }
 }
 
@@ -66,5 +64,5 @@ object Paths {
   
   val index      = Menu.i("Home") / "index"
   
-  def sitemap = SiteMap(index >> LocGroup("topLeft","nl1"))
+  def sitemap = SiteMap(((index >> LocGroup("topLeft","nl1")) +: omniauth.Omniauth.sitemap):_*)
 }

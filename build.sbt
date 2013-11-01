@@ -34,7 +34,8 @@ libraryDependencies ++= {
     "net.liftweb"      %% "lift-squeryl-record"  % liftVersion          % "compile",
     "net.liftweb"      %% "lift-wizard"          % liftVersion          % "compile",
     "net.liftweb"      %% "lift-testkit"         % liftVersion          % "compile",
-    "net.liftmodules"  %% "fobo_2.5"             % "1.0"                % "compile"  
+    "net.liftmodules"  %% "fobo_2.5"             % "1.0"                % "compile",
+    "net.liftmodules"  %% "omniauth_2.5"         % "0.7-SNAPSHOT"       % "compile"
     )
 }
 
