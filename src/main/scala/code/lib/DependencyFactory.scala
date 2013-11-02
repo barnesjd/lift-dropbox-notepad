@@ -16,6 +16,7 @@ import java.util.Date
  */
 object DependencyFactory extends Factory {
   implicit object time extends FactoryMaker(net.liftweb.util.Helpers.now _)
+  implicit object dropbox extends FactoryMaker(new code.service.DropboxService)
 
   /**
    * objects in Scala are lazily created.  The init()
@@ -24,7 +25,7 @@ object DependencyFactory extends Factory {
    * registering their types with the dependency injector
    */
   private def init() {
-    List(time)
+    List(time, dropbox)
   }
   init()
 }
