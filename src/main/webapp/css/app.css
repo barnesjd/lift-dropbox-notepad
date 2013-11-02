@@ -103,7 +103,10 @@ body {
 
 
 /* -----------------------------------------
-   Page Name 2
+   Updates for Lift-Dropbox-Notepad
 ----------------------------------------- */
-
+textarea {
+	margin-top: 6px;
+	margin-bottom: 6px;
+}
 

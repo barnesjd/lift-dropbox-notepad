@@ -20,15 +20,22 @@
 				</div>
 				
 				<div class="row-fluid">
-					<div class="span12 well">
+					<div data-lift="DropboxSnippets.signin" class="span12 well">
 						<!-- <h2>Main content</h2>  -->
 						<h3>Connect to your Dropbox account</h3>
 						<p>
 						    This app will only create a folder in your "Apps" directory.
 						</p>
-                        <a href="/auth/dropbox/signin" class="btn btn-primary">Connect</a>
+            <div><a href="/auth/dropbox/signin" class="btn btn-primary">Connect</a></div>
 					</div>
 				</div>
+				
+        <div class="row-fluid">
+          <div data-lift="DropboxSnippets.notes" class="span12 well">
+            <div><textarea rows="4" cols="50">Hello User! Take some notes!</textarea></div>
+            <div><span class="btn btn-primary">Save</span></div>
+          </div>
+        </div>
 			</div>
 
 			<hr>
