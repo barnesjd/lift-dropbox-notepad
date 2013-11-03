@@ -24,14 +24,21 @@ class DropboxSnippets extends Loggable {
   
   def notes = currentAuth.map { a =>
     val user = a.name
-    ".notes *" #> s"Hello $user! Take some notes!" &
-    ".save [onclick]" #> ajaxCall(
+    val token = a.token
+    val default = s"Hello $user! Take some notes!"
+    
+    val notes = ".notes *" #> (dropbox flatMap { dbx => 
+      dbx.readNotes(token) 
+    } openOr (default))
+    
+    val save = ".save [onclick]" #> ajaxCall(
 	  Jq(".notes") ~> JsFunc("val"), 
-	  { str => 
-	    dropbox map (_.notes(str))
+	  { notes => 
+	    dropbox map (_.writeNotes(token, notes))
 	    Noop 
 	  }
 	)
     
+	notes & save
   }.openOr(ClearNodes)
 }
