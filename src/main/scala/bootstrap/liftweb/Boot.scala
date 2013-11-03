@@ -62,7 +62,7 @@ object Paths {
   //import xml.NodeSeq
   import scala.xml._
   
-  val index      = Menu.i("Home") / "index"
+  val index = Menu.i("Lift Dropbox Notepad | prose :: and :: conz") / "index"
   
   def sitemap = SiteMap(((index >> LocGroup("topLeft","nl1")) +: omniauth.Omniauth.sitemap):_*)
 }
