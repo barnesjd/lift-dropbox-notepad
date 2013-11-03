@@ -26,9 +26,14 @@ class DropboxSnippets extends Loggable {
     val token = a.token
     val default = s"Hello $user! Take some notes!"
     
-    val notes = "#notes *" #> (dropbox flatMap { dbx => 
-      dbx.readNotes(token) 
-    } openOr (default))
+    S.session.map { s => 
+      Schedule { () => 
+        val notes = (dropbox flatMap (_.readNotes(token)) openOr (default))
+        s.sendCometActorMessage("DropboxActor", Empty, notes)
+      }
+    }
+    
+    val notes = "#notes *" #> "loading..."
     
     val save = ".save [onclick]" #> ajaxCall(
 	  ElemById("notes") ~> JsVal("value"), 
