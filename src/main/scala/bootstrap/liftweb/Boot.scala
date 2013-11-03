@@ -64,5 +64,7 @@ object Paths {
   
   val index = Menu.i("Lift Dropbox Notepad | prose :: and :: conz") / "index"
   
-  def sitemap = SiteMap(((index >> LocGroup("topLeft","nl1")) +: omniauth.Omniauth.sitemap):_*)
+  val sitelist = List(index >> LocGroup("topLeft","nl1")) ++ omniauth.Omniauth.sitemap
+  
+  def sitemap = SiteMap(sitelist:_*)
 }

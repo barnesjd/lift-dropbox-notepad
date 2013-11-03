@@ -15,7 +15,6 @@ import java.util.Date
  * stack basis.
  */
 object DependencyFactory extends Factory {
-  implicit object time extends FactoryMaker(net.liftweb.util.Helpers.now _)
   implicit object dropbox extends FactoryMaker(new code.service.DropboxService)
 
   /**
@@ -25,7 +24,7 @@ object DependencyFactory extends Factory {
    * registering their types with the dependency injector
    */
   private def init() {
-    List(time, dropbox)
+    List(dropbox)
   }
   init()
 }
