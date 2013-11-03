@@ -13,7 +13,6 @@ import SHtml._
 import js._
 import JsCmds._
 import JE._
-import js.jquery.JqJE._
 
 import omniauth.Omniauth._
 
@@ -27,12 +26,12 @@ class DropboxSnippets extends Loggable {
     val token = a.token
     val default = s"Hello $user! Take some notes!"
     
-    val notes = ".notes *" #> (dropbox flatMap { dbx => 
+    val notes = "#notes *" #> (dropbox flatMap { dbx => 
       dbx.readNotes(token) 
     } openOr (default))
     
     val save = ".save [onclick]" #> ajaxCall(
-	  Jq(".notes") ~> JsFunc("val"), 
+	  ElemById("notes") ~> JsVal("value"), 
 	  { notes => 
 	    dropbox map (_.writeNotes(token, notes))
 	    Noop 
