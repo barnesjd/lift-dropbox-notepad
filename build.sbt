@@ -5,7 +5,7 @@ name := "Lift Dropbox Notepad"
 
 version := "0.1"
 
-scalaVersion := "2.10.3"
+scalaVersion := "2.10.4"
 
 scalacOptions <<= scalaVersion map { v: String =>
   val opts = "-deprecation" :: "-unchecked" :: Nil
@@ -36,7 +36,7 @@ libraryDependencies ++= {
     "net.liftweb"      %% "lift-testkit"         % liftVersion          % "compile",
     "net.liftmodules"  %% "fobo_2.5"             % "1.0"                % "compile",
     "com.dropbox.core" %  "dropbox-core-sdk"     % "1.7.5"              % "compile",
-    "net.liftmodules"  %% "omniauth_2.5"         % "0.7-SNAPSHOT"       % "compile"
+    "net.liftmodules"  %% "omniauth_2.5"         % "0.13"               % "compile"
     )
 }
 
