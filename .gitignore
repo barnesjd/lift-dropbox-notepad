@@ -6,3 +6,5 @@ var/
 .classpath
 .project
 .settings/
+
+.idea/
